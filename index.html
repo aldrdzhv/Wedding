@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Приглашение на свадьбу Александра и Яны</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Александр & Яна</h1>
+            <p>26 апреля 2025 года</p>
+            <a href="#rsvp" class="btn">Подтвердить присутствие</a>
+        </div>
+    </header>
+
+    <section id="story" class="section">
+        <h2>Наша история</h2>
+        <p>Мы познакомились под конец 2023 года на работе. Сначала даже не узнали друг друга. Но наши мамы напомнили нам, что мы оказывается жили в соседних квартирах.</p>
+        <p>С тех пор наши сердца бьются в унисон. Каждый день вместе — это новое приключение, полное любви, смеха и счастья.</p>
+        <p>Теперь мы готовы сделать следующий шаг и приглашаем вас разделить с нами этот особенный день!</p>
+    </section>
+
+    <section id="gallery" class="section">
+        <h2>Галерея</h2>
+        <div class="gallery-container">
+            <a href="2.jpg" data-lightbox="wedding-gallery" data-title="Фото 1">
+                <img src="photo1.jpg" alt="Фото 1">
+            </a>
+            <a href="3.jpg" data-lightbox="wedding-gallery" data-title="Фото 2">
+                <img src="photo2.jpg" alt="Фото 2">
+            </a>
+            <a href="4.jpg" data-lightbox="wedding-gallery" data-title="Фото 3">
+                <img src="photo3.jpg" alt="Фото 3">
+            </a>
+        </div>
+    </section>
+
+    <section id="video" class="section">
+        <h2>Наше видео</h2>
+        <div class="video-container">
+            <video controls width="100%" height="auto">
+                <source src="IMG_5152.MP4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+    </section>
+
+    <section id="rsvp" class="section">
+        <h2>Подтвердите присутствие</h2>
+        <form action="#" method="post">
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="guests">Количество гостей:</label>
+            <input type="number" id="guests" name="guests" min="1" required>
+            <label for="message">Ваше сообщение (необязательно):</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+            <button type="submit" class="btn">Отправить</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>С любовью, Александр и Яна</p>
+        <div class="social-links">
+            <a href="https://instagram.com/salyoia_"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://t.me/aldrdzhv"><i class="fab fa-telegram"></i></a>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+</body>
+</html>
