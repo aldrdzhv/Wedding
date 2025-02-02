@@ -6,7 +6,7 @@
     <title>Приглашение на свадьбу Александра и Яны</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <header>
@@ -26,16 +26,20 @@
 
     <section id="gallery" class="section">
         <h2>Галерея</h2>
-        <div class="gallery-container">
-            <a href="2.jpg" data-lightbox="wedding-gallery" data-title="Фото 1">
-                <img src="photo1.jpg" alt="Фото 1">
-            </a>
-            <a href="3.jpg" data-lightbox="wedding-gallery" data-title="Фото 2">
-                <img src="photo2.jpg" alt="Фото 2">
-            </a>
-            <a href="4.jpg" data-lightbox="wedding-gallery" data-title="Фото 3">
-                <img src="photo3.jpg" alt="Фото 3">
-            </a>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="2.jpg" alt="Фото 1"></div>
+                <div class="swiper-slide"><img src="3.jpg" alt="Фото 2"></div>
+                <div class="swiper-slide"><img src="4.jpg" alt="Фото 3"></div>
+                <div class="swiper-slide"><img src="5.jpg" alt="Фото 3"></div>
+                <div class="swiper-slide"><img src="6.jpg" alt="Фото 3"></div>
+                <div class="swiper-slide"><img src="7.jpg" alt="Фото 3"></div>
+                <div class="swiper-slide"><img src="8.jpg" alt="Фото 3"></div>
+                <!-- Добавь остальные фотографии -->
+            </div>
+            <!-- Кнопки навигации -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -70,6 +74,61 @@
             <a href="https://t.me/aldrdzhv"><i class="fab fa-telegram"></i></a>
         </div>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper-container', {
+            loop: true, // Бесконечная прокрутка
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 2, // Количество видимых слайдов
+            spaceBetween: 20, // Расстояние между слайдами
+        });
+    </script>
+
+    <script>
+        // Скролл на начало страницы при загрузке
+        window.onload = function() {
+            window.scrollTo(0, 0); // Перемещает страницу в начало
+        };
+
+        // Убираем якорь из URL при загрузке страницы
+        if (window.location.hash) {
+            window.location.href = window.location.href.split('#')[0];
+        }
+    </script>
+
+    <script>
+        // Открытие модального окна
+        const modal = document.getElementById('modal');
+        const modalImg = document.getElementById('modal-img');
+        const closeBtn = document.querySelector('.close');
+    
+        document.querySelectorAll('.swiper-slide img').forEach(img => {
+            img.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                modalImg.src = img.src;
+            });
+        });
+    
+        // Закрытие модального окна
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    
+        // Закрытие при клике на затемненный фон
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -26,7 +26,7 @@ header h1 {
 
 header p {
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin: 1rem 1;
 }
 
 html {
@@ -61,30 +61,93 @@ html {
 }
 
 /* Галерея */
-.gallery-container {
+.swiper-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.swiper-slide {
+    text-align: center;
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-.gallery-container a {
-    width: 300px;
-    height: 200px;
-    overflow: hidden;
+.swiper-slide img {
+    max-width: 100%;
+    height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
 }
 
-.gallery-container a:hover {
-    transform: scale(1.05);
+.swiper-button-next, .swiper-button-prev {
+    color: #b76e79; /* Цвет стрелок */
+    background-color: rgba(255, 255, 255, 0.8); /* Фон кнопок */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Круглая форма */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень */
+    transition: background-color 0.3s ease;
+    position: absolute; /* Позиционируем абсолютно */
+    top: 50%; /* Центрируем по вертикали */
+    transform: translateY(-50%); /* Точное центрирование */
+    z-index: 10; /* Чтобы кнопки были поверх слайдов */
 }
 
-.gallery-container img {
+.swiper-button-next:hover, .swiper-button-prev:hover {
+    background-color: rgba(255, 255, 255, 1); /* Фон при наведении */
+}
+
+.swiper-button-next::after, .swiper-button-prev::after {
+    font-size: 24px; /* Размер стрелок */
+    font-weight: bold;
+    color: #b76e79; /* Цвет стрелок */
+}
+
+.swiper-button-next {
+    right: 20px; /* Позиция справа */
+}
+
+.swiper-button-prev {
+    left: 20px; /* Позиция слева */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    background-color: rgba(0, 0, 0, 0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #b76e79;
 }
 
 /* Видео */
